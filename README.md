@@ -38,30 +38,84 @@ int main()
     printf("value of final_marks is %d\n",final_marks);
     return 0;
 }
-# Q3 . program to find two number taking input from user:-
 
-#include<stdio.h>
-int main()
-{
-    int a,b,sum;
-    printf("enter value of a & b \n");
-    scanf("%d%d",&a,&b);// here scanf is a function to take value from user
-    sum=a+b;
-    printf("sum of a & b is %d\n",sum);
-    return 0;
-}
-# Q4 .program to find area of square:-
-#include<stdio.h>
-int main()
-{
-    int side;
-    printf("enter side of square\n");
-    scanf("%d",&side);
-    printf("area of square is%d\n",side*side);
-    return 0;
-}
+
 ```
 ├── 03-Operators/           # Arithmetic, Relational, Logical, Bitwise
+```
+#  Arithmetic operator:-
+#include<stdio.h>
+int main()
+{// a&b are operands in which operators are performed
+    //+,-,*,/ are arithmetic operators which perform arithmetic operations
+   // all of these are valid operators in c language
+    int a=1,b=2;
+    int sum=a+b;
+    int multiply=a*b;
+// their should be single variable in the LHS side of the expression
+    //int j+f=a*b; //invalid statement
+    //d=bc; //invalid statement
+    //a=b^c; //invalid statement
+      
+return 0;
+}
+# Relational operator:-
+#include<stdio.h>
+int main()
+{
+    int a=2,b=4;
+    printf("a=b%d\n",a==b);//1(true)
+    printf("a!=b%d\n",a!=b);//0(false)
+    printf("a>b%d\n",a>b);//0(false)
+    printf("a<b%d\n",a<b);//1(true)
+    printf("a>=b%d\n",a>=b);//0(false)
+    printf("a<=b%d\n",a<=b);//1(true)
+    //!= is called not equal to operator
+    return 0;
+}
+# Logical operators:-
+#include<stdio.h>
+int main()
+{
+    printf("%d\n",3>4 && 5>2);// 0(false) because first condition is false
+    printf("%d\n",3>4 || 5>2);// 1(true) because second condition is true
+    printf("%d\n",!(3>4));// 1(true) because 3>4 is false and !false is true
+    return 0;
+}
+# some question:-
+#Q1. WAP to check if a number is divisible by 2 or not :-
+#include<stdio.h>
+int main()
+{
+    int a;
+    printf("enter the value of a");
+    scanf(" %d",&a);
+    printf("%d",a%2==0);
+    return 0;
+   // here if the value is 0 then it is false and if the value is 1 then it is true        
+}
+#Q2. WAP to tell if the  number is even or odd :-
+  #include<stdio.h>
+int main()
+{// even-> 1
+//  odd-> 1
+    int a;
+    printf("enter the value of a");
+    scanf(" %d",&a);
+    printf("%d",a%2==0);
+    return 0;
+}
+#Q3. check wheatherca.int a =8^8 is valid or not:-
+#include<stdio.h>
+int main()
+{
+  int a =8^8;
+  printf("%d",a);
+  return 0;
+  // yes it is valid as ^ is bitwise xor operator so it will give 0 as output
+}
+
+```
 ├── 04-Control-Flow/        # if-else, switch, while, for loops
 ├── 05-Functions/           # Declaration, Definition, Recursion
 ├── 06-Arrays-Strings/      # 1D/2D Arrays, String library functions
