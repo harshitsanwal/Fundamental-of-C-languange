@@ -117,12 +117,196 @@ int main()
 
 ```
 ├── 04-Control-Flow/        # if-else, switch, while, for loops
+```
+#Q1 . if,else & elseif statement in C:-
+#include<stdio.h>
+int main()
+{
+  int age;
+  printf("Enter the age:");
+  scanf("%d",&age);
+  if(age>18)
+  {
+    printf("Adult\n");
+    printf("They can vote\n");
+    printf("They can drive\n");
+  }
+   else if(age>13&&age<18)
+   {
+    printf("Teenager\n");
+   }
+    else
+    { 
+    printf("child\n");
+    }
+   return 0;
+}
+#Q2 . switch case in c program using integer:-
+#include<stdio.h>
+int main()
+{
+    int day;
+    printf("Enter the day number (1-7):");
+    scanf("%d",&day);
+    switch(day)
+    {
+        case 1:
+        printf("Monday\n");
+        break;
+        case 2:
+        printf("Tueday\n");
+        break;
+        case 3:
+        printf("Wednesday\n");
+        break;
+        case 4:
+        printf("Thursday\n");
+        break;
+        case 5:
+        printf("Friday\n");
+        break;
+        case 6:
+        printf("Saturday\n");
+        break;
+        case 7:
+        printf("Sunday\n");
+        break;
+        default:
+        printf("Invalid input");
+    }
+    return 0; 
+    }
+#Q3 . program to use for statement in looping:-
+#include<stdio.h>
+int main()
+{
+    int i;
+    for(i=0.0;i<=10.0;i++) // (i++= i+1) after using i for one time it will increase by 1 and for --i it will decrease by 1
+    {
+        printf("%d\n",i);
+        //printf("%f\n",i); // %f is used for float values
+    }
+    return 0;
+}
+#Q4 . WAP to print the first five number using while loop
+#include <stdio.h>
+int main() {
+    int i = 1;
+    while (i <= 5) {
+        printf("%d\n", i);
+        i++;
+    }
+    return 0;
+}
+```
 ├── 05-Functions/           # Declaration, Definition, Recursion
+```
+#Q1 .fuction prototype,function call,function declaration:-
+#include<stdio.h>
+void add(); //function prototype 
+int main()
+{
+    int a=10,b=20,c;
+    add(a,b); //function call
+    return 0;
+}
+void add(int l,int z)//fuction declaration
+{
+    printf("Hello World\n");   
+}
+//sum of n natural numbers using functions
+#include<stdio.h>
+int sum(int n);
+int main()
+{
+    int num,c;
+    printf("Enter a number:");
+    scanf("%d",&num);
+    c=sum(num);
+    printf("Enter the sum:%d\n",c);
+    return 0;
+}
+int sum(int n)
+{
+    if(n==1)
+    return 1;
+    else
+    return n+sum(n-1);
+}
+```
 ├── 06-Arrays-Strings/      # 1D/2D Arrays, String library functions
+```
+#Q1 .length of  string without using string library:-
+#include<stdio.h>
+int count(char str[]);
+int main()
+{
+    char str[100];
+    int len=0,i;
+    printf("Enter the string:");
+    gets(str);
+    len=count(str);
+    printf("Length of the string is:%d\n",len);
+    return 0;
+}
+int count(char ptr[])
+{
+    int count,i;
+    for(i=0;ptr[i]!='\0';i++)
+    {
+        count++;
+    }
+    printf("length of the string is:%d\n",count);
+    return count-1;
+}
+```
 ├── 07-Pointers/            # Pointer arithmetic, Pointers to pointers
+```
+#Q1 . syntax of pointer:-
+#include<stdio.h>
+int main()
+{
+    int age=22;
+    int *ptr=&age;// *=value of address operator, &=adress of operator
+    int _age=*ptr+1;// * dereferencing operator
+    printf("Value of age is:%d",_age);
+    return 0;
+}
+#Q2 .printing address using pointer:-
+#include<stdio.h>
+int main()
+{
+    int age=22;
+    int *ptr=&age;
+    printf("Address of age is:%u\n",ptr);
+    printf("Address of age is:%p\n",ptr);
+    printf("Address of ptr is:%u\n",&ptr);
+    printf("Address of age is:%u\n",&age);
+    ++(*ptr);//(*ptr)++ also works
+    printf("Value of age is:%d\n",age);
+    printf("Value of age using pointer is:%d\n",*ptr);
+    return 0;
+}
+#Q3 . WAP to find the sum,product and average of two numbers using pointers:-
+#include<stdio.h>   
+void calculate(int a,int b,int *sum,int *product,int *average);     
+int main()
+{
+    int num=20,temp=30,sum,product,average;
+    calculate(num,temp,&sum,&product,&average);
+     printf("Sum=%d\n",sum);
+    printf("Product=%d\n",product);
+    printf("Average=%d\n",average);
+    return 0;
+}
+void calculate(int x,int y,int *sum,int *product,int *average)
+{
+     *sum =x+y;
+     *product =x*y;
+     *average =(x+y)/2;
+}
+```
 ├── 08-Memory-Management/   # malloc, calloc, realloc, free
 ├── 09-Structs-Unions/      # typedef, structure padding
 ├── 10-File-Handling/       # fopen, fscanf, fprintf
-├── Projects/               # Small mini-projects applying concepts
-└── README.md               # The main documentation file
 
