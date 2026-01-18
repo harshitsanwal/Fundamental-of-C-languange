@@ -42,8 +42,9 @@ int main()
 
 ```
 ├── 03-Operators/           # Arithmetic, Relational, Logical, Bitwise
+
+ Arithmetic operator:-
 ```
-#  Arithmetic operator:-
 #include<stdio.h>
 int main()
 {// a&b are operands in which operators are performed
@@ -73,7 +74,9 @@ int main()
     //!= is called not equal to operator
     return 0;
 }
-# Logical operators:-
+```
+ Logical operators:-
+```
 #include<stdio.h>
 int main()
 {
@@ -82,7 +85,9 @@ int main()
     printf("%d\n",!(3>4));// 1(true) because 3>4 is false and !false is true
     return 0;
 }
-# some question:-
+```
+```
+some question:-
 #Q1. WAP to check if a number is divisible by 2 or not :-
 #include<stdio.h>
 int main()
