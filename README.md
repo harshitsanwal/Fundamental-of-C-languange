@@ -312,6 +312,444 @@ void calculate(int x,int y,int *sum,int *product,int *average)
 }
 ```
 ├── 08-Memory-Management/   # malloc, calloc, realloc, free
-├── 09-Structs-Unions/      # typedef, structure padding
-├── 10-File-Handling/       # fopen, fscanf, fprintf
+Malloc :-
+```
+//malloc
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int *ptr;
+    ptr=(int*) malloc(5*sizeof(int));
+    ptr[0]=1;
+    ptr[1]=2;
+    ptr[2]=3;
+    ptr[3]=4;
+    for(int i=0;i<=3;i++)
+    {
+        printf("%d\n",ptr[i]);
+    }
+    return 0;
+}
+```
+Calloc:-
+```
+//calloc
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int *ptr;
+    ptr=(int *)calloc(5,sizeof(int));
+    ptr[0]=10;
+    ptr[1]=20;
+    ptr[2]=30;
+    ptr[3]=40;
+    for(int i=0;i<4;i++)
+    {
+        printf("%d\n",ptr[i]);
+    }
+    return 0;
+}
+```
+Realloc:-
+```
+//realloc
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int *ptr;
+    ptr=(int *)calloc(5,sizeof(int));
+    printf("Enter the numbver(6):");
+    for(int i=0;i<6;i++)
+    {
+        scanf("%d",&ptr[i]);
+    }
+    ptr=realloc(ptr,8);
+    printf("Enter the number(8):");
+    for(int i=0;i<9;i++)
+{
+     scanf("%d",&ptr[i]);
 
+}
+  for(int i=0;i,8;i++)
+  {
+    printf("number %d is %d",i,ptr[i]);
+  }
+}
+```
+Free:-
+```
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int *ptr;
+    ptr=(int *)calloc(5,sizeof(int));
+    ptr[0]=1;
+    ptr[1]=3;
+    ptr[2]=5;
+    ptr[3]=7;
+    ptr[4]=9;
+    for(int i=0;i<5;i++)
+    {
+        printf("%d\n",ptr[i]);
+    }
+    ptr=realloc(ptr,6);
+    ptr[0]=2;
+    ptr[1]=4;
+    ptr[2]=6;
+    ptr[3]=8;
+    ptr[4]=10;
+    ptr[5]=12;
+    for(int i=0;i<6;i++)
+    {
+        printf("%d\n",ptr[i]);
+    }
+free(ptr);
+    return 0;
+}
+```
+├── 09-Structs-Unions/      # typedef, structure padding
+Syntax of structure:-
+```
+//syntax of structure
+#include<stdio.h>
+#include<string.h>
+struct student
+{
+    int id;
+    char name[50];
+    float marks;
+};
+int main()
+{
+    struct student s1;
+    s1.id=12;
+    strcpy(s1.name,"Harshit Sanwal");
+    s1.marks=95.5;
+    printf("ID:%d\n",s1.id);
+    printf("Name:%s\n",s1.name);
+    printf("Marks:%.2f\n",s1.marks);
+    return 0;
+}
+```
+Storing student details using structure:-
+```
+//WAP to store and print student details using structure
+#include<stdio.h>
+#include<string.h>
+struct student
+{
+    int id;
+    char name[50];
+    float marks;
+};
+int main()
+{
+    struct student s1,s2;
+    //storing details of first student
+    s1.id=101;
+    strcpy(s1.name,"Harshit Sanwal");
+    s1.marks=95.5;
+    //storing details of second student
+    s2.id=102;
+    strcpy(s2.name,"stranger kumar");
+    s2.marks=89.0;
+    //printing details of first student
+    printf("Student 1 Details:\n");
+    printf("ID:%d\n",s1.id);
+    printf("Name:%s\n",s1.name);
+    printf("Marks:%.2f\n",s1.marks);
+    //printing details of second student
+    printf("\nStudent 2 Details:\n");
+    printf("ID:%d\n",s2.id);
+    printf("Name:%s\n",s2.name);
+    printf("Marks:%.2f\n",s2.marks);
+    return 0;
+}
+```
+Array in structure:-
+```
+//array of structures
+#include<stdio.h>
+#include<string.h>
+struct student
+{
+    int id;
+    char name[50];
+    float marks;
+};
+int main()
+{
+    struct student students[3];
+    //storing details of students
+    students[0].id=101;
+    strcpy(students[0].name,"Harshit Sanwal");
+    students[0].marks=95.5;
+
+    students[1].id=102;
+    strcpy(students[1].name,"Stranger Kumar");
+    students[1].marks=89.0;
+
+    students[2].id=103;
+    strcpy(students[2].name,"kamlesh Yadav");
+    students[2].marks=92.0;
+
+    //printing details of students
+    for(int i=0;i<3;i++)
+    {
+        printf("Student %d Details:\n",i+1);
+        printf("ID:%d\n",students[i].id);
+        printf("Name:%s\n",students[i].name);
+        printf("Marks:%.2f\n\n",students[i].marks);
+    }
+    return 0;
+}
+```
+Pointer in structure:-
+```
+//pointer to structure
+#include<stdio.h>   
+#include<string.h>
+struct student
+{
+    int id;
+    char name[50];
+    float marks;
+};      
+int main()
+{
+    struct student s1;
+    struct student *ptr;
+    ptr=&s1;
+    //storing details using pointer
+    ptr->id=101;
+    strcpy(ptr->name,"Harshit Sanwal");
+    ptr->marks=95.5;
+    //printing details using pointer
+    printf("Student Details:\n");
+    printf("ID:%d\n",ptr->id);
+    printf("Name:%s\n",ptr->name);
+    printf("Marks:%.2f\n",ptr->marks);
+    return 0;
+}
+ ```
+Typedef in structure :-
+```
+//typedef in structures
+#include<stdio.h>
+#include<string.h>
+typedef struct student
+{
+    int id;
+    char name[50];
+    float marks;    
+}stu;
+int main()
+{
+    stu s1;
+    s1.id=101;
+    strcpy(s1.name,"Harshit Sanwal");
+    s1.marks=95.5;
+    printf("Student Details:\n");
+    printf("ID:%d\n",s1.id);
+    printf("Name:%s\n",s1.name);
+    printf("Marks:%.2f\n",s1.marks);
+    return 0;
+}
+```
+Question:-
+Q1:-WAP to struct two vector then make afuction to return sum of 2 vectors?
+```
+#include<stdio.h>
+struct vector
+{
+    int x;
+    int y;
+};
+struct vector add(struct vector v1,struct vector v2);
+int main()
+{
+    struct vector vec1,vec2,sum;
+    //storing values in first vector
+    vec1.x=10;
+    vec1.y=20;
+    //storing values in second vector
+    vec2.x=30;
+    vec2.y=40;
+    //calling function to add two vectors
+    sum=add(vec1,vec2);
+    printf("Sum of Vectors:\n");
+    printf("X:%d\n",sum.x);
+    printf("Y:%d\n",sum.y);
+    return 0;
+}
+struct vector add(struct vector v1,struct vector v2)
+{
+    struct vector result;
+    result.x=v1.x+v2.x;
+    result.y=v1.y+v2.y;
+    return result;
+}
+```
+Q2:-Create a structure of complex number using arrow operator?
+```
+#include<stdio.h>   
+struct complex
+{
+    int real;
+    int imag;
+};  
+int main()
+{
+    struct complex c1;
+    struct complex *ptr;
+    ptr=&c1;
+    //storing values using pointer
+    ptr->real=5;
+    ptr->imag=8;
+    //printing values using pointer
+    printf("Complex Number:\n");
+    printf("Real:%d\n",ptr->real);
+    printf("Imaginary:%d\n",ptr->imag);
+    return 0;
+}
+```
+Q3:- Make a structure to store detail of a bank?
+```
+#include<stdio.h>
+#include<string.h>
+typedef struct bank{
+    int acc_no;
+    char name[100];
+} acc;
+int main()
+{
+    acc acc1={12345678,"Harshit Sanwal"};
+    acc acc2={12345679,"Stranger Kumar"};
+    acc acc3={12345680,"Kamlesh Yadav"};
+    printf("acc no=%d\n",acc1.acc_no);
+    printf("name=%s\n",acc1.name);
+    return 0;
+
+}
+```
+├── 10-File-Handling/       # fopen, fscanf
+File pointer:-
+
+
+1.
+```
+
+//file pointer 
+#include<stdio.h>
+int main()
+{
+    FILE *fptr;//create a file pointer
+    fptr=fopen("yoyo.txt","r");//open a file in read mode
+    fclose(fptr);//closing the file
+    return 0;
+}
+```
+2.
+```
+#include<stdio.h>
+int main()
+{
+    FILE *ptr;
+    ptr=fopen("Hello.txt","r");
+    if(ptr==NULL)
+    {
+        printf("file doesn't exist\n");
+    }
+    else 
+    {
+        fclose(ptr);
+    }
+    return 0;
+```
+using fscanf:-
+```
+#include<stdio.h>
+int main()
+{
+    FILE *fstr;
+    fstr=fopen("yoyo.txt","r");
+    char ch;
+    fscanf(fstr,"%c",&ch);
+    printf("character=%c\n",ch);
+        fscanf(fstr,"%c",&ch);
+    printf("character=%c\n",ch);
+
+        fscanf(fstr,"%c",&ch);
+    printf("character=%c\n",ch);
+
+        fscanf(fstr,"%c",&ch);
+    printf("character=%c\n",ch);
+
+        fscanf(fstr,"%c",&ch);
+    printf("character=%c\n",ch);
+
+    return 0;
+}
+```
+using of fgetc:-
+```
+#include<stdio.h>
+int main()
+{
+    FILE *og;
+    og=fopen("yoyo.txt","r");
+    char c;
+    c=fgetc(og);
+    while(c!=EOF)
+    {
+        printf("%c",c);
+        c=fgetc(og);
+    }    
+     printf("\n");
+    fclose(og);
+    return 0;
+}
+```
+Some Questions:-
+Q1.WAP to write all odd the number from 1 to n in a file where n is enter from the user?
+```
+#include<stdio.h>
+int main()
+{
+    FILE *sr;
+    int num,i;
+    sr=fopen("odd.txt","w");
+    printf("Enter the number:");
+    scanf("%d",&num);
+    for(i=0;i<=num;i++)
+    {
+        if(i%2!=0)
+        {
+            fprintf(sr,"%d\n",i);
+        }
+    }
+    fclose(sr);
+    return 0;
+}
+```
+Q2. Adding two number in a file?
+```
+#include<stdio.h>
+int main()
+{
+    FILE *file;
+    file=fopen("sum.txt","r");\\reading a file will not change the data in the file 
+    int a,b;
+    fscanf(file,"%d\n",&a);
+    fscanf(file,"%d\n",&b);
+    fclose(file);
+    file==fopen("sum.txt","w");\\ writing a file this  will overight the data already present in the file  
+    fprintf(file,"%d",a+b);
+    fclose(file);
+    return 0;
+}
+```
