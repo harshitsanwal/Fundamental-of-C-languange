@@ -1,7 +1,7 @@
 # Fundamental-of-C-languange
 C-Fundamentals/
 ├── 01-Basics/              # Hello World, Comments, Escape Sequences
-```
+```c
 # Q1 . program to print hello world:-
 
 #include<stdio.h> //# is preprocesor directive
@@ -14,7 +14,7 @@ return 0;
 }
  ```
 ├── 02-Variables-DataTypes/ # int, float, char, constants
-```
+```c
 # Q2 . program to demonstrate variable declaration and printing values
 
 
@@ -44,7 +44,7 @@ int main()
 ├── 03-Operators/           # Arithmetic, Relational, Logical, Bitwise
 
  Arithmetic operator:-
-```
+```c
 #include<stdio.h>
 int main()
 {// a&b are operands in which operators are performed
@@ -76,7 +76,7 @@ int main()
 }
 ```
  Logical operators:-
-```
+```c
 #include<stdio.h>
 int main()
 {
